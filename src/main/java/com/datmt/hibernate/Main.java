@@ -12,8 +12,9 @@ public class Main {
     private static final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
             .configure().build();
     private static final SessionFactory factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+
     public static void main(String[] args) {
-        try (Session session = factory.openSession())         {
+        try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
 
             User user = new User();
@@ -24,4 +25,6 @@ public class Main {
             tx.commit();
         }
     }
+
+
 }
